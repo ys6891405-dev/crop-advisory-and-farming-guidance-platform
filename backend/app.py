@@ -96,3 +96,4 @@ def farming_guidance():
 
 if __name__ == "__main__":
     app.run(debug=True)
+    

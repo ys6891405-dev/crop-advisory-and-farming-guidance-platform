@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weather Information | Farmers Platform</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+
+            <h2>🌾 Farmers Platform</h2>
+
+            <nav>
+                <a href="/">Home</a>
+                <a href="/dashboard">Dashboard</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <section class="dashboard-header">
+
+            <h1>🌦️ Weather Information</h1>
+
+            <p>
+                Select your location to view weather information
+                useful for farming activities.
+            </p>
+
+        </section>
+
+
+        <!-- Weather Card -->
+        <div class="service-card">
+
+            <h2>Check Weather</h2>
+
+            <form>
+
+                <label for="location">
+                    Select Location
+                </label>
+
+                <select id="location">
+
+                    <option value="">
+                        Select Location
+                    </option>
+
+                    <option value="trichy">
+                        Trichy
+                    </option>
+
+                    <option value="chennai">
+                        Chennai
+                    </option>
+
+                    <option value="coimbatore">
+                        Coimbatore
+                    </option>
+
+                    <option value="madurai">
+                        Madurai
+                    </option>
+
+                </select>
+
+
+                <button
+                    type="button"
+                    onclick="showWeather()">
+
+                    🌦️ Check Weather
+
+                </button>
+
+            </form>
+
+
+            <!-- Weather Result -->
+            <div id="result" style="display:none;">
+
+                <h2>🌤️ Weather Details</h2>
+
+                <div id="weatherResult"></div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 Farmers Platform |
+            Smart Agriculture for a Better Future 🌱
+        </p>
+
+    </footer>
+
+
+    <!-- Weather Logic -->
+    <script>
+
+        function showWeather() {
+
+            const location =
+                document.getElementById("location").value;
+
+            const result =
+                document.getElementById("result");
+
+            const weatherResult =
+                document.getElementById("weatherResult");
+
+
+            if (location === "") {
+
+                alert("Please select a location.");
+
+                return;
+
+            }
+
+
+            let city = "";
+            let temperature = "";
+            let condition = "";
+            let humidity = "";
+            let advice = "";
+
+
+            if (location === "trichy") {
+
+                city = "Trichy";
+                temperature = "30°C";
+                condition = "Partly Cloudy";
+                humidity = "65%";
+                advice =
+                    "Suitable conditions for routine farming activities. Monitor rainfall before irrigation.";
+
+            }
+
+
+            else if (location === "chennai") {
+
+                city = "Chennai";
+                temperature = "31°C";
+                condition = "Cloudy";
+                humidity = "72%";
+                advice =
+                    "Monitor humidity and rainfall conditions. Avoid unnecessary irrigation when rainfall is expected.";
+
+            }
+
+
+            else if (location === "coimbatore") {
+
+                city = "Coimbatore";
+                temperature = "28°C";
+                condition = "Partly Cloudy";
+                humidity = "68%";
+                advice =
+                    "Moderate weather conditions. Farmers can plan irrigation according to soil moisture.";
+
+            }
+
+
+            else if (location === "madurai") {
+
+                city = "Madurai";
+                temperature = "32°C";
+                condition = "Sunny";
+                humidity = "60%";
+                advice =
+                    "Higher temperature may increase water requirements. Monitor soil moisture regularly.";
+
+            }
+
+
+            weatherResult.innerHTML = `
+
+                <div class="recommendation-result">
+
+                    <h2>
+                        📍 ${city}
+                    </h2>
+
+                    <h3>
+                        🌡️ Temperature
+                    </h3>
+
+                    <p>
+                        ${temperature}
+                    </p>
+
+                    <h3>
+                        ☁️ Condition
+                    </h3>
+
+                    <p>
+                        ${condition}
+                    </p>
+
+                    <h3>
+                        💧 Humidity
+                    </h3>
+
+                    <p>
+                        ${humidity}
+                    </p>
+
+                    <h3>
+                        👨‍🌾 Farming Advice
+                    </h3>
+
+                    <p>
+                        ${advice}
+                    </p>
+
+                    <p>
+                        <strong>Note:</strong>
+                        This is a prototype weather module.
+                        A future version can connect to a
+                        real-time weather API for live data.
+                    </p>
+
+                </div>
+
+            `;
+
+
+            result.style.display = "block";
+
+        }
+
+    </script>
+
+</body>
+
+</html>

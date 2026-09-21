@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Market Prices | Farmers Platform</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+
+            <h2>🌾 Farmers Platform</h2>
+
+            <nav>
+                <a href="/">Home</a>
+                <a href="/dashboard">Dashboard</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <section class="dashboard-header">
+
+            <h1>💰 Agricultural Market Prices</h1>
+
+            <p>
+                Check sample market prices to understand
+                current agricultural price information.
+            </p>
+
+        </section>
+
+
+        <!-- Market Price Card -->
+        <div class="service-card">
+
+            <h2>Check Crop Price</h2>
+
+            <form>
+
+                <label for="crop">
+                    Select Crop
+                </label>
+
+                <select id="crop">
+
+                    <option value="">
+                        Select Crop
+                    </option>
+
+                    <option value="rice">
+                        Rice
+                    </option>
+
+                    <option value="wheat">
+                        Wheat
+                    </option>
+
+                    <option value="tomato">
+                        Tomato
+                    </option>
+
+                    <option value="groundnut">
+                        Groundnut
+                    </option>
+
+                    <option value="cotton">
+                        Cotton
+                    </option>
+
+                </select>
+
+
+                <button
+                    type="button"
+                    onclick="showPrice()">
+
+                    💰 Check Market Price
+
+                </button>
+
+            </form>
+
+
+            <!-- Result -->
+            <div id="result" style="display:none;">
+
+                <h2>📊 Market Information</h2>
+
+                <div id="priceResult"></div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 Farmers Platform |
+            Smart Agriculture for a Better Future 🌱
+        </p>
+
+    </footer>
+
+
+    <!-- Market Price Logic -->
+    <script>
+
+        function showPrice() {
+
+            const crop =
+                document.getElementById("crop").value;
+
+            const result =
+                document.getElementById("result");
+
+            const priceResult =
+                document.getElementById("priceResult");
+
+
+            if (crop === "") {
+
+                alert("Please select a crop.");
+
+                return;
+
+            }
+
+
+            let cropName = "";
+            let price = "";
+            let unit = "per quintal";
+            let advice = "";
+
+
+            if (crop === "rice") {
+
+                cropName = "Rice";
+                price = "₹2,300";
+                advice =
+                    "Compare prices across nearby markets before selling.";
+
+            }
+
+
+            else if (crop === "wheat") {
+
+                cropName = "Wheat";
+                price = "₹2,450";
+                advice =
+                    "Check local market demand and transportation costs.";
+
+            }
+
+
+            else if (crop === "tomato") {
+
+                cropName = "Tomato";
+                price = "₹2,000";
+                advice =
+                    "Vegetable prices can change quickly, so check current market conditions before selling.";
+
+            }
+
+
+            else if (crop === "groundnut") {
+
+                cropName = "Groundnut";
+                price = "₹6,200";
+                advice =
+                    "Consider quality, moisture level and local market demand.";
+
+            }
+
+
+            else if (crop === "cotton") {
+
+                cropName = "Cotton";
+                price = "₹7,200";
+                advice =
+                    "Compare buyer offers and market demand before making a sale.";
+
+            }
+
+
+            priceResult.innerHTML = `
+
+                <div class="recommendation-result">
+
+                    <h2>
+                        🌾 ${cropName}
+                    </h2>
+
+                    <h3>
+                        💰 Sample Market Price
+                    </h3>
+
+                    <p>
+                        <strong>${price}</strong>
+                        ${unit}
+                    </p>
+
+                    <h3>
+                        👨‍🌾 Farmer Advice
+                    </h3>
+
+                    <p>
+                        ${advice}
+                    </p>
+
+                    <p>
+                        <strong>Note:</strong>
+                        These are prototype/sample values,
+                        not live market prices.
+                        A future version can connect to
+                        a real-time agricultural market API.
+                    </p>
+
+                </div>
+
+            `;
+
+
+            result.style.display = "block";
+
+        }
+
+    </script>
+
+</body>
+
+</html>

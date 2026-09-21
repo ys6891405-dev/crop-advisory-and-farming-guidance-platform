@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Farming Guidance | Farmers Platform</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+
+            <h2>🌾 Farmers Platform</h2>
+
+            <nav>
+                <a href="/">Home</a>
+                <a href="/dashboard">Dashboard</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <section class="dashboard-header">
+
+            <h1>📚 Farming Guidance</h1>
+
+            <p>
+                Get useful agricultural guidance and farming
+                practices for different crops.
+            </p>
+
+        </section>
+
+
+        <!-- Guidance Card -->
+        <div class="service-card">
+
+            <h2>Select a Crop</h2>
+
+            <form>
+
+                <label for="crop">
+                    Select Crop
+                </label>
+
+                <select id="crop">
+
+                    <option value="">
+                        Select Crop
+                    </option>
+
+                    <option value="rice">
+                        Rice
+                    </option>
+
+                    <option value="wheat">
+                        Wheat
+                    </option>
+
+                    <option value="tomato">
+                        Tomato
+                    </option>
+
+                    <option value="groundnut">
+                        Groundnut
+                    </option>
+
+                    <option value="cotton">
+                        Cotton
+                    </option>
+
+                </select>
+
+
+                <button
+                    type="button"
+                    onclick="showGuidance()">
+
+                    📚 Get Farming Guidance
+
+                </button>
+
+            </form>
+
+
+            <!-- Result -->
+            <div id="result" style="display:none;">
+
+                <h2>👨‍🌾 Farming Guidance</h2>
+
+                <div id="guidanceResult"></div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 Farmers Platform |
+            Smart Agriculture for a Better Future 🌱
+        </p>
+
+    </footer>
+
+
+    <!-- Farming Guidance Logic -->
+    <script>
+
+        function showGuidance() {
+
+            const crop =
+                document.getElementById("crop").value;
+
+            const result =
+                document.getElementById("result");
+
+            const guidanceResult =
+                document.getElementById("guidanceResult");
+
+
+            if (crop === "") {
+
+                alert("Please select a crop.");
+
+                return;
+
+            }
+
+
+            let cropName = "";
+            let soil = "";
+            let irrigation = "";
+            let fertilizer = "";
+            let pest = "";
+            let harvest = "";
+
+
+            if (crop === "rice") {
+
+                cropName = "Rice";
+
+                soil =
+                    "Clayey or loamy soil with good water-holding capacity.";
+
+                irrigation =
+                    "Maintain adequate water during important growth stages and avoid unnecessary water loss.";
+
+                fertilizer =
+                    "Use balanced nutrients based on soil condition and crop requirements.";
+
+                pest =
+                    "Regularly monitor the field for insects and disease symptoms.";
+
+                harvest =
+                    "Harvest when the grains reach suitable maturity and moisture levels.";
+
+            }
+
+
+            else if (crop === "wheat") {
+
+                cropName = "Wheat";
+
+                soil =
+                    "Well-drained loamy soil is generally suitable.";
+
+                irrigation =
+                    "Provide irrigation at important crop growth stages based on soil moisture.";
+
+                fertilizer =
+                    "Balanced nitrogen, phosphorus and potassium support healthy growth.";
+
+                pest =
+                    "Monitor regularly for pests and fungal diseases.";
+
+                harvest =
+                    "Harvest when the crop reaches proper maturity and the grains are sufficiently dry.";
+
+            }
+
+
+            else if (crop === "tomato") {
+
+                cropName = "Tomato";
+
+                soil =
+                    "Well-drained fertile soil rich in organic matter.";
+
+                irrigation =
+                    "Maintain consistent soil moisture and avoid excessive waterlogging.";
+
+                fertilizer =
+                    "Balanced nutrients with suitable potassium support fruit development.";
+
+                pest =
+                    "Inspect leaves and fruits regularly for insects and disease symptoms.";
+
+                harvest =
+                    "Harvest fruits at the appropriate maturity stage according to market requirements.";
+
+            }
+
+
+            else if (crop === "groundnut") {
+
+                cropName = "Groundnut";
+
+                soil =
+                    "Light, well-drained sandy or loamy soil is generally suitable.";
+
+                irrigation =
+                    "Provide adequate moisture during important growth stages while avoiding waterlogging.";
+
+                fertilizer =
+                    "Phosphorus, potassium and calcium are important for healthy pod development.";
+
+                pest =
+                    "Monitor plants and soil regularly for insects and disease symptoms.";
+
+                harvest =
+                    "Harvest when the pods have reached suitable maturity.";
+
+            }
+
+
+            else if (crop === "cotton") {
+
+                cropName = "Cotton";
+
+                soil =
+                    "Deep, well-drained soil with good moisture-holding capacity can support cotton cultivation.";
+
+                irrigation =
+                    "Manage irrigation according to soil moisture and crop growth stage.";
+
+                fertilizer =
+                    "Use balanced nutrients and avoid excessive nitrogen application.";
+
+                pest =
+                    "Regularly monitor the crop for bollworms and other pests.";
+
+                harvest =
+                    "Harvest mature cotton bolls when they open naturally.";
+
+            }
+
+
+            guidanceResult.innerHTML = `
+
+                <div class="recommendation-result">
+
+                    <h2>
+                        🌾 ${cropName} Farming Guide
+                    </h2>
+
+                    <h3>
+                        🌱 Soil Management
+                    </h3>
+
+                    <p>
+                        ${soil}
+                    </p>
+
+
+                    <h3>
+                        💧 Irrigation
+                    </h3>
+
+                    <p>
+                        ${irrigation}
+                    </p>
+
+
+                    <h3>
+                        🧪 Fertilizer Management
+                    </h3>
+
+                    <p>
+                        ${fertilizer}
+                    </p>
+
+
+                    <h3>
+                        🐛 Pest & Disease Monitoring
+                    </h3>
+
+                    <p>
+                        ${pest}
+                    </p>
+
+
+                    <h3>
+                        🌾 Harvesting
+                    </h3>
+
+                    <p>
+                        ${harvest}
+                    </p>
+
+
+                    <p>
+                        <strong>Note:</strong>
+                        This is a prototype farming guidance
+                        module. Future versions can provide
+                        location-specific recommendations using
+                        agricultural databases and intelligent
+                        recommendation models.
+                    </p>
+
+                </div>
+
+            `;
+
+
+            result.style.display = "block";
+
+        }
+
+    </script>
+
+</body>
+
+</html>

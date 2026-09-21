@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Disease Detection | Farmers Platform</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+
+            <h2>🌾 Farmers Platform</h2>
+
+            <nav>
+                <a href="/">Home</a>
+                <a href="/dashboard">Dashboard</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <section class="dashboard-header">
+
+            <h1>🌿 Crop Disease Detection</h1>
+
+            <p>
+                Upload a crop leaf image to check for a possible
+                crop disease and receive basic guidance.
+            </p>
+
+        </section>
+
+
+        <!-- Detection Card -->
+        <div class="service-card">
+
+            <h2>Upload Crop Leaf Image</h2>
+
+            <form>
+
+                <label for="crop">
+                    Select Crop
+                </label>
+
+                <select id="crop">
+
+                    <option value="">
+                        Select Crop
+                    </option>
+
+                    <option value="rice">
+                        Rice
+                    </option>
+
+                    <option value="tomato">
+                        Tomato
+                    </option>
+
+                    <option value="potato">
+                        Potato
+                    </option>
+
+                    <option value="cotton">
+                        Cotton
+                    </option>
+
+                </select>
+
+
+                <label for="leafImage">
+                    Upload Leaf Image
+                </label>
+
+                <input
+                    type="file"
+                    id="leafImage"
+                    accept="image/*"
+                >
+
+
+                <button
+                    type="button"
+                    onclick="detectDisease()">
+
+                    🔍 Detect Disease
+
+                </button>
+
+            </form>
+
+
+            <!-- Result -->
+            <div id="result" style="display:none;">
+
+                <h2>🩺 Detection Result</h2>
+
+                <div id="diseaseResult"></div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 Farmers Platform |
+            Smart Agriculture for a Better Future 🌱
+        </p>
+
+    </footer>
+
+
+    <!-- Disease Detection Logic -->
+    <script>
+
+        function detectDisease() {
+
+            const crop =
+                document.getElementById("crop").value;
+
+            const image =
+                document.getElementById("leafImage").files[0];
+
+            const result =
+                document.getElementById("result");
+
+            const diseaseResult =
+                document.getElementById("diseaseResult");
+
+
+            // Check crop
+            if (crop === "") {
+
+                alert("Please select a crop.");
+
+                return;
+            }
+
+
+            // Check image
+            if (!image) {
+
+                alert("Please upload a crop leaf image.");
+
+                return;
+            }
+
+
+            let disease = "";
+            let guidance = "";
+            let prevention = "";
+
+
+            if (crop === "rice") {
+
+                disease = "Possible Rice Leaf Disease";
+
+                guidance =
+                    "Inspect the affected leaves and remove severely damaged plant material. Proper field management and suitable plant protection measures may help.";
+
+                prevention =
+                    "Maintain proper spacing, balanced nutrition and good field sanitation.";
+
+            }
+
+
+            else if (crop === "tomato") {
+
+                disease = "Possible Tomato Leaf Disease";
+
+                guidance =
+                    "Remove heavily affected leaves and monitor the plant regularly. Appropriate crop protection measures should be selected based on expert advice.";
+
+                prevention =
+                    "Avoid excessive moisture on leaves and maintain good air circulation.";
+
+            }
+
+
+            else if (crop === "potato") {
+
+                disease = "Possible Potato Leaf Disease";
+
+                guidance =
+                    "Check the leaves for spots or discoloration and monitor the crop closely. Use appropriate disease-management practices.";
+
+                prevention =
+                    "Maintain proper irrigation and field sanitation.";
+
+            }
+
+
+            else if (crop === "cotton") {
+
+                disease = "Possible Cotton Leaf Disease";
+
+                guidance =
+                    "Inspect the crop for leaf spots, discoloration or unusual growth and seek agricultural expert guidance if symptoms increase.";
+
+                prevention =
+                    "Maintain proper field hygiene and regularly monitor the crop.";
+
+            }
+
+
+            diseaseResult.innerHTML = `
+
+                <div class="recommendation-result">
+
+                    <h2>🌿 ${disease}</h2>
+
+                    <h3>💡 Guidance</h3>
+
+                    <p>
+                        ${guidance}
+                    </p>
+
+                    <h3>🛡️ Prevention</h3>
+
+                    <p>
+                        ${prevention}
+                    </p>
+
+                    <p>
+                        <strong>Note:</strong>
+                        This is a prototype demonstration.
+                        Actual disease identification can be
+                        integrated with a trained machine-learning
+                        image classification model.
+                    </p>
+
+                </div>
+
+            `;
+
+
+            result.style.display = "block";
+
+        }
+
+    </script>
+
+</body>
+
+</html>

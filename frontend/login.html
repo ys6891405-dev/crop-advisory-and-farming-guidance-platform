@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Farmers Platform</title>
+
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <h2 class="logo">🌱 Farmers Platform</h2>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/register">Register</a>
+        </div>
+    </nav>
+
+    <section class="form-section">
+
+        <div class="form-container">
+
+            <h2>Welcome Back 🌾</h2>
+
+            <p>Login to access your Farmers Platform dashboard.</p>
+
+            <form action="/login" method="POST">
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    required
+                >
+
+                <button type="submit">Login</button>
+
+            </form>
+
+            <p class="form-link">
+                Don't have an account?
+                <a href="/register">Register here</a>
+            </p>
+
+        </div>
+
+    </section>
+
+</body>
+</html>

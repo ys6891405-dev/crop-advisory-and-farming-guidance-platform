@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fertilizer Guidance | Farmers Platform</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+
+            <h2>🌾 Farmers Platform</h2>
+
+            <nav>
+                <a href="/">Home</a>
+                <a href="/dashboard">Dashboard</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <section class="dashboard-header">
+
+            <h1>🌱 Fertilizer Guidance</h1>
+
+            <p>
+                Select your crop and soil type to receive
+                basic fertilizer guidance.
+            </p>
+
+        </section>
+
+
+        <!-- Fertilizer Form -->
+        <div class="service-card">
+
+            <h2>Enter Farming Details</h2>
+
+            <form>
+
+                <label for="crop">
+                    Select Crop
+                </label>
+
+                <select id="crop">
+
+                    <option value="">
+                        Select Crop
+                    </option>
+
+                    <option value="rice">
+                        Rice
+                    </option>
+
+                    <option value="wheat">
+                        Wheat
+                    </option>
+
+                    <option value="cotton">
+                        Cotton
+                    </option>
+
+                    <option value="groundnut">
+                        Groundnut
+                    </option>
+
+                    <option value="tomato">
+                        Tomato
+                    </option>
+
+                </select>
+
+
+                <label for="soil">
+                    Select Soil Type
+                </label>
+
+                <select id="soil">
+
+                    <option value="">
+                        Select Soil Type
+                    </option>
+
+                    <option value="clay">
+                        Clay Soil
+                    </option>
+
+                    <option value="sandy">
+                        Sandy Soil
+                    </option>
+
+                    <option value="loamy">
+                        Loamy Soil
+                    </option>
+
+                    <option value="black">
+                        Black Soil
+                    </option>
+
+                    <option value="red">
+                        Red Soil
+                    </option>
+
+                </select>
+
+
+                <button
+                    type="button"
+                    onclick="getFertilizerGuidance()">
+
+                    🌱 Get Fertilizer Guidance
+
+                </button>
+
+            </form>
+
+
+            <!-- Result -->
+            <div id="result" style="display:none;">
+
+                <h2>🌾 Fertilizer Recommendation</h2>
+
+                <div id="fertilizerResult"></div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 Farmers Platform |
+            Smart Agriculture for a Better Future 🌱
+        </p>
+
+    </footer>
+
+
+    <!-- Fertilizer Logic -->
+    <script>
+
+        function getFertilizerGuidance() {
+
+            const crop =
+                document.getElementById("crop").value;
+
+            const soil =
+                document.getElementById("soil").value;
+
+            const result =
+                document.getElementById("result");
+
+            const fertilizerResult =
+                document.getElementById("fertilizerResult");
+
+
+            if (crop === "" || soil === "") {
+
+                alert("Please select both crop and soil type.");
+
+                return;
+            }
+
+
+            let fertilizer = "";
+            let reason = "";
+            let tip = "";
+
+
+            if (crop === "rice") {
+
+                fertilizer =
+                    "Nitrogen-based fertilizer with suitable phosphorus and potassium support.";
+
+                reason =
+                    "Rice requires adequate nutrients, particularly nitrogen, during its growth stages.";
+
+                tip =
+                    "Apply nutrients in appropriate stages and avoid excessive fertilizer application.";
+
+            }
+
+
+            else if (crop === "wheat") {
+
+                fertilizer =
+                    "Balanced NPK fertilizer with emphasis on nitrogen during important growth stages.";
+
+                reason =
+                    "Wheat requires balanced nutrition for healthy vegetative growth and grain development.";
+
+                tip =
+                    "Maintain balanced nutrient application according to soil conditions.";
+
+            }
+
+
+            else if (crop === "cotton") {
+
+                fertilizer =
+                    "Balanced NPK fertilizer with adequate potassium support.";
+
+                reason =
+                    "Cotton requires balanced nutrients for plant growth and boll development.";
+
+                tip =
+                    "Avoid excessive nitrogen because it can encourage excessive vegetative growth.";
+
+            }
+
+
+            else if (crop === "groundnut") {
+
+                fertilizer =
+                    "Phosphorus and potassium-rich fertilizer with suitable calcium support.";
+
+                reason =
+                    "Groundnut benefits from nutrients that support root development and pod formation.";
+
+                tip =
+                    "Maintain good soil fertility and avoid excessive nitrogen application.";
+
+            }
+
+
+            else if (crop === "tomato") {
+
+                fertilizer =
+                    "Balanced NPK fertilizer with adequate potassium during fruit development.";
+
+                reason =
+                    "Tomato plants require balanced nutrients for vegetative growth and fruit production.";
+
+                tip =
+                    "Use soil-test-based fertilizer recommendations whenever possible.";
+
+            }
+
+
+            fertilizerResult.innerHTML = `
+
+                <div class="recommendation-result">
+
+                    <h2>
+                        🌱 Recommended Fertilizer
+                    </h2>
+
+                    <p>
+                        <strong>${fertilizer}</strong>
+                    </p>
+
+                    <h3>
+                        💡 Why is it suitable?
+                    </h3>
+
+                    <p>
+                        ${reason}
+                    </p>
+
+                    <h3>
+                        👨‍🌾 Farming Tip
+                    </h3>
+
+                    <p>
+                        ${tip}
+                    </p>
+
+                    <h3>
+                        🧪 Soil Consideration
+                    </h3>
+
+                    <p>
+                        The selected soil type is
+                        <strong>${soil} soil</strong>.
+                        For accurate fertilizer dosage,
+                        a soil test and local agricultural
+                        recommendations should be considered.
+                    </p>
+
+                    <p>
+                        <strong>Note:</strong>
+                        This is a prototype guidance module.
+                        A future version can integrate
+                        soil-test data and an ML-based
+                        fertilizer recommendation system.
+                    </p>
+
+                </div>
+
+            `;
+
+
+            result.style.display = "block";
+
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,15 +1,234 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Farmers Platform</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
 </head>
+
+
 <body>
 
-    <h1>🌱 Welcome to Farmers Platform</h1>
+    <!-- Navigation Bar -->
 
-    <p>Crop Advisory and Farming Guidance Platform</p>
+    <nav class="navbar">
 
-    <h2>Backend Connected Successfully!</h2>
+        <h2 class="logo">
+            🌱 Farmers Platform
+        </h2>
+
+
+        <div class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/dashboard">
+                Dashboard
+            </a>
+
+            <a href="/login">
+                Login
+            </a>
+
+            <a href="/register">
+                Register
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- Hero Section -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Smart Farming Starts With Better Decisions 🌾
+            </h1>
+
+
+            <p>
+                Your complete Crop Advisory and Farming Guidance Platform
+                designed to help farmers make smarter agricultural decisions.
+            </p>
+
+
+            <a href="/register" class="btn">
+                Get Started
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Services Section -->
+
+    <section class="services">
+
+        <h2>
+            Our Smart Farming Services
+        </h2>
+
+
+        <div class="service-container">
+
+
+            <!-- Crop Recommendation -->
+
+            <div class="card">
+
+                <h3>
+                    🌾 Crop Recommendation
+                </h3>
+
+                <p>
+                    Get recommendations for suitable crops based on
+                    farming conditions.
+                </p>
+
+                <a href="/crop-recommendation" class="btn">
+                    Try Now
+                </a>
+
+            </div>
+
+
+
+            <!-- Disease Detection -->
+
+            <div class="card">
+
+                <h3>
+                    🌿 Disease Detection
+                </h3>
+
+                <p>
+                    Identify possible crop diseases and receive
+                    useful guidance.
+                </p>
+
+                <a href="/disease-detection" class="btn">
+                    Try Now
+                </a>
+
+            </div>
+
+
+
+            <!-- Fertilizer Guidance -->
+
+            <div class="card">
+
+                <h3>
+                    🌱 Fertilizer Guidance
+                </h3>
+
+                <p>
+                    Get recommendations to support better crop growth.
+                </p>
+
+                <a href="/fertilizer" class="btn">
+                    Try Now
+                </a>
+
+            </div>
+
+
+
+            <!-- Weather -->
+
+            <div class="card">
+
+                <h3>
+                    🌦️ Weather Information
+                </h3>
+
+                <p>
+                    Access weather information to help plan
+                    farming activities.
+                </p>
+
+                <a href="/weather" class="btn">
+                    View Weather
+                </a>
+
+            </div>
+
+
+
+            <!-- Market Prices -->
+
+            <div class="card">
+
+                <h3>
+                    💰 Market Prices
+                </h3>
+
+                <p>
+                    Stay informed about agricultural market information.
+                </p>
+
+                <a href="/market-prices" class="btn">
+                    View Prices
+                </a>
+
+            </div>
+
+
+
+            <!-- Farming Guidance -->
+
+            <div class="card">
+
+                <h3>
+                    📚 Farming Guidance
+                </h3>
+
+                <p>
+                    Get useful farming tips and agricultural guidance.
+                </p>
+
+                <a href="/farming-guidance" class="btn">
+                    Learn More
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Farmers Platform |
+            Smart Agriculture for a Better Future 🌱
+        </p>
+
+    </footer>
+
 
 </body>
+
 </html>

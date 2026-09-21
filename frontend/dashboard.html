@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmers Platform - Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h2>🌾 Farmers Platform</h2>
+
+            <nav>
+                <a href="/">Home</a>
+                <a href="/dashboard">Dashboard</a>
+                <a href="/login">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="dashboard">
+
+        <div class="container">
+
+            <section class="dashboard-header">
+                <h1>Welcome to Your Farming Dashboard 🌱</h1>
+                <p>
+                    Access smart agricultural services and make better farming decisions.
+                </p>
+            </section>
+
+            <section class="service-grid">
+
+                <div class="service-card">
+                    <div class="icon">🌾</div>
+                    <h3>Crop Recommendation</h3>
+                    <p>
+                        Find suitable crops based on soil and farming conditions.
+                    </p>
+                    <a href="/crop-recommendation">Explore</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">🌿</div>
+                    <h3>Disease Detection</h3>
+                    <p>
+                        Identify possible crop diseases and get useful guidance.
+                    </p>
+                    <a href="/disease-detection">Explore</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">🌱</div>
+                    <h3>Fertilizer Guidance</h3>
+                    <p>
+                        Get fertilizer guidance to support healthy crop growth.
+                    </p>
+                    <a href="/fertilizer">Explore</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">🌦️</div>
+                    <h3>Weather Information</h3>
+                    <p>
+                        Check weather information to plan farming activities.
+                    </p>
+                    <a href="/weather">Explore</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">💰</div>
+                    <h3>Market Prices</h3>
+                    <p>
+                        View agricultural market information and crop prices.
+                    </p>
+                    <a href="/market-prices">Explore</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">📚</div>
+                    <h3>Farming Guidance</h3>
+                    <p>
+                        Learn useful farming practices and agricultural tips.
+                    </p>
+                    <a href="/farming-guidance">Explore</a>
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Farmers Platform | Smart Agriculture for a Better Future 🌱</p>
+    </footer>
+
+</body>
+</html>
