@@ -1,73 +1,45 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Register | Farmers Platform</title>
-
-    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 <body>
+    <header>
+        <h2>🌾 Farmers Platform</h2>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('login') }}">Login</a>
+        </nav>
+    </header>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <h2 class="logo">🌱 Farmers Platform</h2>
+    <main class="auth-container">
+        <h1>Create Your Account 🌱</h1>
+        <p>Join the Farmers Platform for smart farming guidance.</p>
 
-        <div class="nav-links">
-            <a href="/">Home</a>
-            <a href="/login">Login</a>
-        </div>
-    </nav>
+        <form action="{{ url_for('register') }}" method="POST">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name"
+                   placeholder="Enter your full name" required>
 
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email"
+                   placeholder="Enter your email" required>
 
-    <!-- Registration Form -->
-    <section class="form-section">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password"
+                   placeholder="Create a password" required>
 
-        <div class="form-container">
+            <button type="submit">Register</button>
+        </form>
 
-            <h2>Create Your Account 🌾</h2>
-
-            <p>Join the Farmers Platform and access smart farming services.</p>
-
-            <form action="/register" method="POST">
-
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="Enter your full name"
-                    required
-                >
-
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Enter your email"
-                    required
-                >
-
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Create a password"
-                    required
-                >
-
-                <button type="submit">
-                    Register
-                </button>
-
-            </form>
-
-            <p class="form-link">
-                Already have an account?
-                <a href="/login">Login here</a>
-            </p>
-
-        </div>
-
-    </section>
-
+        <p>Already have an account?
+            <a href="{{ url_for('login') }}">Login here</a>
+        </p>
+    </main>
 </body>
 </html>
+```

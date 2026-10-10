@@ -1,103 +1,132 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farmers Platform - Dashboard</title>
-
+    <title>Farmers Platform Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        .dashboard-heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+        .service-card {
+            background: white;
+            border: 1px solid #d8e6d5;
+            border-radius: 14px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 12px #00000012;
+        }
+        .service-icon {
+            font-size: 42px;
+        }
+        .service-card h2 {
+            color: #245c35;
+            font-size: 21px;
+        }
+        .service-card p {
+            color: #555;
+            line-height: 1.6;
+        }
+        .service-button {
+            display: inline-block;
+            background: #287a43;
+            color: white;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 7px;
+            margin-top: 10px;
+        }
+        .service-button:hover {
+            background: #195a2e;
+        }
+        @media (max-width: 800px) {
+            .service-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+        @media (max-width: 520px) {
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-
 <body>
-
     <header>
-        <div class="container">
-            <h2>🌾 Farmers Platform</h2>
-
-            <nav>
-                <a href="/">Home</a>
-                <a href="/dashboard">Dashboard</a>
-                <a href="/login">Logout</a>
-            </nav>
-        </div>
+        <h2>🌾 Farmers Platform</h2>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </nav>
     </header>
 
-    <main class="dashboard">
+    <main class="dashboard-container">
+        <section class="dashboard-heading">
+            <h1>Welcome to Your Dashboard 🌱</h1>
+            <p>Your smart farming assistant — everything you need in one place.</p>
+        </section>
 
-        <div class="container">
+        <section class="service-grid">
+            <article class="service-card">
+                <div class="service-icon">🌱</div>
+                <h2>Crop Recommendation</h2>
+                <p>Find suitable crops based on soil, season and water availability.</p>
+                <a class="service-button" href="{{ url_for('crop_recommendation') }}">Explore Now</a>
+            </article>
 
-            <section class="dashboard-header">
-                <h1>Welcome to Your Farming Dashboard 🌱</h1>
-                <p>
-                    Access smart agricultural services and make better farming decisions.
-                </p>
-            </section>
+            <article class="service-card">
+                <div class="service-icon">🍃</div>
+                <h2>Disease Detection</h2>
+                <p>Get guidance on identifying common crop diseases.</p>
+                <a class="service-button" href="{{ url_for('disease_detection') }}">Explore Now</a>
+            </article>
 
-            <section class="service-grid">
+            <article class="service-card">
+                <div class="service-icon">🧪</div>
+                <h2>Fertilizer Guidance</h2>
+                <p>Learn about fertilizer choices for healthy crop growth.</p>
+                <a class="service-button" href="{{ url_for('fertilizer') }}">Explore Now</a>
+            </article>
 
-                <div class="service-card">
-                    <div class="icon">🌾</div>
-                    <h3>Crop Recommendation</h3>
-                    <p>
-                        Find suitable crops based on soil and farming conditions.
-                    </p>
-                    <a href="/crop-recommendation">Explore</a>
-                </div>
+            <article class="service-card">
+                <div class="service-icon">🌦️</div>
+                <h2>Weather Information</h2>
+                <p>View weather guidance to help plan your farm activities.</p>
+                <a class="service-button" href="{{ url_for('weather') }}">Explore Now</a>
+            </article>
 
-                <div class="service-card">
-                    <div class="icon">🌿</div>
-                    <h3>Disease Detection</h3>
-                    <p>
-                        Identify possible crop diseases and get useful guidance.
-                    </p>
-                    <a href="/disease-detection">Explore</a>
-                </div>
+            <article class="service-card">
+                <div class="service-icon">💰</div>
+                <h2>Market Prices</h2>
+                <p>Find market-price information to support selling decisions.</p>
+                <a class="service-button" href="{{ url_for('market_prices') }}">Explore Now</a>
+            </article>
 
-                <div class="service-card">
-                    <div class="icon">🌱</div>
-                    <h3>Fertilizer Guidance</h3>
-                    <p>
-                        Get fertilizer guidance to support healthy crop growth.
-                    </p>
-                    <a href="/fertilizer">Explore</a>
-                </div>
-
-                <div class="service-card">
-                    <div class="icon">🌦️</div>
-                    <h3>Weather Information</h3>
-                    <p>
-                        Check weather information to plan farming activities.
-                    </p>
-                    <a href="/weather">Explore</a>
-                </div>
-
-                <div class="service-card">
-                    <div class="icon">💰</div>
-                    <h3>Market Prices</h3>
-                    <p>
-                        View agricultural market information and crop prices.
-                    </p>
-                    <a href="/market-prices">Explore</a>
-                </div>
-
-                <div class="service-card">
-                    <div class="icon">📚</div>
-                    <h3>Farming Guidance</h3>
-                    <p>
-                        Learn useful farming practices and agricultural tips.
-                    </p>
-                    <a href="/farming-guidance">Explore</a>
-                </div>
-
-            </section>
-
-        </div>
-
+            <article class="service-card">
+                <div class="service-icon">🚜</div>
+                <h2>Farming Guidance</h2>
+                <p>Explore practical tips for crop care and farm management.</p>
+                <a class="service-button" href="{{ url_for('farming_guidance') }}">Explore Now</a>
+            </article>
+        </section>
     </main>
 
     <footer>
-        <p>© 2026 Farmers Platform | Smart Agriculture for a Better Future 🌱</p>
+        <p>© 2026 Farmers Platform | Smart Farming for a Better Future 🌾</p>
     </footer>
-
 </body>
 </html>
